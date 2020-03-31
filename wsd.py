@@ -50,8 +50,8 @@ def findBestFeature(discriminativeDictionary, wDict):
     bestFeature="failure"
     for featureType, feature in wDict.items():
         if feature in discriminativeDictionary[featureType]:
-            if discriminativeDictionary[featureType][feature]>maximum:
-                maximum = discriminativeDictionary[featureType][feature]
+            if discriminativeDictionary[featureType][feature]["discriminative"]>maximum:
+                maximum = discriminativeDictionary[featureType][feature]["discriminative"]
                 bestFeatureType=featureType
                 bestFeature=feature
     return (bestFeatureType,bestFeature)
@@ -199,15 +199,21 @@ discriminativeDictionary=copy.deepcopy(featureCorpus)
 for featureType in featureCorpus:
     for feature in featureCorpus[featureType]:
         if "phone" in featureCorpus[featureType][feature] and "product" in featureCorpus[featureType][feature]:
-            discriminativeDictionary[featureType][feature]=abs(math.log( ( featureCorpus[featureType][feature]["phone"] )/( featureCorpus[featureType][feature]["product"] ) ))
+            discriminativeDictionary[featureType][feature]["discriminative"]=abs(math.log( ( featureCorpus[featureType][feature]["phone"] )/( featureCorpus[featureType][feature]["product"] ) ))
+            if featureCorpus[featureType][feature]["phone"] > featureCorpus[featureType][feature]["product"]:
+                discriminativeDictionary[featureType][feature]["bestSense"]="phone"
+            elif featureCorpus[featureType][feature]["phone"] < featureCorpus[featureType][feature]["product"]:
+                discriminativeDictionary[featureType][feature]["bestSense"]="product"
         else:
             # If "product" doesn't exist
             if "phone" in featureCorpus[featureType][feature]:
-                discriminativeDictionary[featureType][feature]=10000*featureCorpus[featureType][feature]["phone"]
+                discriminativeDictionary[featureType][feature]["discriminative"]=10000*featureCorpus[featureType][feature]["phone"]
+                discriminativeDictionary[featureType][feature]["bestSense"]="phone"
                 featureCorpus[featureType][feature]["product"]=0
             # If "phone" doesn't exist
             else:
-                discriminativeDictionary[featureType][feature]=10000*featureCorpus[featureType][feature]["product"]
+                discriminativeDictionary[featureType][feature]["discriminative"]=10000*featureCorpus[featureType][feature]["product"]
+                discriminativeDictionary[featureType][feature]["bestSense"]="product"
                 featureCorpus[featureType][feature]["phone"]=0
 
 # Read the test file
@@ -287,7 +293,7 @@ for elements in testingCorpus:
                         found=1
                     else:
                         # Set this feature to zero (so it cannot be found again)
-                        tempDiscriminativeDictionary[bestFeatureType][bestFeature]=0
+                        tempDiscriminativeDictionary[bestFeatureType][bestFeature]["discriminative"]=0
                         # If the best feature type is in our dictionary
                         if bestFeatureType in wDict:
                             # If the best feature is in our dictionary
