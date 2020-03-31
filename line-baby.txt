@@ -1,0 +1,38 @@
+<corpus lang="en">
+<lexelt item="line-n">
+<instance id="line-n.w9_10:6830:">
+<answer instance="line-n.w9_10:6830:" senseid="phone"/>
+<context>
+ <s> The New York plan froze basic rates, offered no protection to Nynex against an economic downturn that sharply cut demand and didn't offer flexible pricing. </s> <@> <s> In contrast, the California economy is booming, with 4.5% access <head>line</head> growth in the past year. </s> 
+</context>
+</instance>
+<instance id="line-n.w8_057:16550:">
+<answer instance="line-n.w8_057:16550:" senseid="product"/>
+<context>
+ <s> According to analysts, sales of PS/2 got off to a rocky start but have risen lately -- especially in Europe. </s> <@> <s> IBM wants to establish the <head>line</head> as the new standard in personal computing in Europe. </s> <@> <s> It introduced the line in April 1987 and has said it shipped nearly two million units by its first anniversary. </s> 
+</context>
+</instance>
+<instance id="line-n.w9_32:5971:">
+<answer instance="line-n.w9_32:5971:" senseid="product"/>
+<context>
+ <s> Culinova fresh entrees, launched in 1986 by Philip Morris Cos.'s General Foods Corp., hit similar distribution problems. </s> <@> <s> Last December, shortly after Philip Morris bought Kraft Inc., the struggling the <head>line</head> was scrapped. </s> 
+</context>
+</instance>
+<instance id="line-n.w8_040:16401:">
+<answer instance="line-n.w8_040:16401:" senseid="phone"/>
+<context>
+ <s> So far, the technique is working. </s> <@> <s> Since January, Southwestern Bell has sold about 16,000 new <head>lines</head> to current business customers by introducing them to various features of Integrated Services Digital Network, such as "inspect," which displays the name and telephone number of the party calling. </s> 
+</context>
+</instance>
+<instance id="line-n.w7_011:12192:">
+<answer instance="line-n.w7_011:12192:" senseid="product"/>
+<context>
+ <p> <@> <s> International Business Machines Corp., in another move to regain ground on competitors such as Digital Equipment Corp., unveiled four new models in its most powerful mid-range computer <head>line</head> and its first mainframe computer priced below $1 million. </s> 
+</context>
+</instance>
+<instance id="line-n.w8_069:17513:">
+<answer instance="line-n.w8_069:17513:" senseid="product"/>
+<context>
+ <s> Clones underpriced IBM by 25% to 40% the first time around because they had lower overhead than IBM and access to the same suppliers' parts at the same prices. </s> <@> <s> But IBM makes 70% to 90% of its own parts for the PS/2, up from some 20% for the previous the <head>line</head> . </s> 
+</context>
+</instance>
